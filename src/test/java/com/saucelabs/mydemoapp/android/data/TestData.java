@@ -4,14 +4,14 @@ public class TestData {
 
     // Valid login credentials for SauceLabs Demo App
     public static class ValidCredentials {
-        public static final String USERNAME = "bob@example.com";
+        public static final String USERNAME = "bod@example.com";
         public static final String PASSWORD = "10203040";
     }
 
     // Invalid credentials for negative testing
     public static class InvalidCredentials {
-        public static final String INVALID_USERNAME = "invalid@test.com";
-        public static final String INVALID_PASSWORD = "wrongpass";
+        public static final String INVALID_USERNAME = "alice@example.com";
+        public static final String INVALID_PASSWORD = "1234567";
         public static final String EMPTY_USERNAME = "";
         public static final String EMPTY_PASSWORD = "";
     }

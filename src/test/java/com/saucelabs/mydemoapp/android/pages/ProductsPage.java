@@ -11,15 +11,16 @@ import java.util.List;
 public class ProductsPage extends BaseDriver {
 
     // Locators for products page
-    private final By PRODUCTS_TITLE = MobileBy.xpath("//*[@text='Products']");
-    private final By PRODUCT_ITEMS = MobileBy.xpath("//*[@content-desc='test-Item']");
-    private final By SORT_BUTTON = MobileBy.AccessibilityId("test-Modal Selector Button");
-    private final By CART_BUTTON = MobileBy.AccessibilityId("test-Cart");
+    private final By PRODUCTS_TITLE = MobileBy.xpath("//*[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup[1]/android.widget.TextView[1]");
+    private final By PRODUCT_ITEMS = MobileBy.xpath("//*[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup");
+    private final By PRODUCT_ITEM_PRICE = MobileBy.xpath("//*[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup[1]/android.widget.TextView[2]");
+    private final By SORT_BUTTON = MobileBy.id("com.saucelabs.mydemoapp.android:id/sortIV");
+    private final By CART_BUTTON = MobileBy.id("com.saucelabs.mydemoapp.android:id/cartIV");
 
     // Product item locators (using index-based approach)
-    private final String PRODUCT_ITEM_TEMPLATE = "//*[@content-desc='test-Item'][%d]";
-    private final String PRODUCT_TITLE_TEMPLATE = "//*[@content-desc='test-Item title'][%d]";
-    private final String PRODUCT_PRICE_TEMPLATE = "//*[@content-desc='test-Price'][%d]";
+    private final String PRODUCT_ITEM_TEMPLATE = "//*[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup[%d]";
+    private final String PRODUCT_TITLE_TEMPLATE = "//*[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup[%d]/android.widget.TextView[1]";
+    private final String PRODUCT_PRICE_TEMPLATE = "//*[@content-desc=\"Displays all products of catalog\"]/android.view.ViewGroup[%d]/android.widget.TextView[2]";
 
     public boolean isProductsPageDisplayed() {
         try {
@@ -39,12 +40,6 @@ public class ProductsPage extends BaseDriver {
         By productLocator = MobileBy.xpath("//*[@content-desc='test-Item title' and @text='" + productName + "']/parent::*");
         MobileElement product = (MobileElement) wait.until(ExpectedConditions.elementToBeClickable(productLocator));
         product.click();
-    }
-
-    public int getProductCount() {
-        @SuppressWarnings("unchecked")
-        List<MobileElement> products = driver.findElements(PRODUCT_ITEMS);
-        return products.size();
     }
 
     public String getProductTitle(int productIndex) {

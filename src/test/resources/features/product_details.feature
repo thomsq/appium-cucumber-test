@@ -44,6 +44,6 @@ Feature: Product Details Viewing
     Then the product details page should be displayed
     And the product title should be displayed
     When the user goes back to products page
-    And the user selects product at position 2
+    And the user selects product at position 3
     Then the product details page should be displayed
     And the product title should be displayed

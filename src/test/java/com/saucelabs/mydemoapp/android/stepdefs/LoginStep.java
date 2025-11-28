@@ -74,4 +74,11 @@ public class LoginStep {
         String errorMessage = loginPage.getErrorMessage();
         System.out.println("Successfully validated error message: " + errorMessage);
     }
+
+    @Then("the user should see a username error message")
+    public void the_user_should_see_a_username_error_message() {
+        Assert.assertTrue("Username error message should be displayed for missing username",
+                         loginPage.isUsernameErrorMessageDisplayed());
+        System.out.println("Successfully validated presence of username error message.");
+    }
 }
